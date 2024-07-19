@@ -1,0 +1,67 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="hero  text-light text-center py-5">
+    <h1 class="fw-bold text-light textShadow mb-4">Benvenuti nel Sito della Polizia Municipale di Epicode</h1>    
+    <a href="#ultimeNotizie" class="btn btn-primary btn-lg ">Scopri le ultime Notizie</a>
+</div>
+
+<div class="container my-5">
+    <div class="row">
+        <div class="col-md-4 mb-4">
+            <div class="info-box bg-light p-4">
+                <h2>Anagrafiche</h2>
+                <p>Visiona o aggiungi trasgressori.</p>
+                <a href="@Url.Action("Index", "Anagrafica")" class="btn btn-primary">Leggi di Più</a>
+            </div>
+        </div>
+        <div class="col-md-4 mb-4">
+            <div class="info-box bg-light p-4">
+                <h2>Verbali</h2>
+                <p>Visiona o aggiungi verbali.</p>
+                <a href="@Url.Action("Index", "Verbale")" class="btn btn-primary">Leggi di Più</a>
+            </div>
+        </div>
+        <div class="col-md-4 mb-4">
+            <div class="info-box bg-light p-4">
+                <h2>Registro</h2>
+                <p>Vai al registro</p>
+                <a href="@Url.Action("Index", "Registro")" class="btn btn-primary">Clicca per piu' info</a>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container my-5" id="ultimeNotizie">
+    <h2 class="text-center mb-4">Ultime Notizie ed Eventi</h2>
+    <div class="row">
+        <div class="col-md-4 mb-4">
+            <div class="card position-relative">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRvhmDlnkbEnO1BpdNsi5ADetjR4CaxkalA9g&s" class="card-img-top custom-image-size" alt="Notizia 1">
+                <div class="card-body position-absolute bottom-0">
+                    <h3 class="card-title">Notizia 1</h3>
+                    <p class="card-text fs-4">Buttato giu' il famoso sexy shop, per via del nome che non rispettava le policy</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4 mb-4">
+            <div class="card position-relative">
+                <img src="https://static1.srcdn.com/wordpress/wp-content/uploads/captain-america-civil-war-movie-reviews.jpg" class="card-img-top custom-image-size" alt="Notizia 2">
+                <div class="card-body position-absolute bottom-0">
+                    <h3 class="card-title">Notizia 2</h3>
+                    <p class="card-text fs-4">Faida infinita tra Simone e Nello</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4 mb-4">
+            <div class="card">
+                <img src="path/to/your/image3.jpg" class="card-img-top" alt="Notizia 3">
+                <div class="card-body">
+                    <h3 class="card-title">Notizia 3</h3>
+                    <p class="card-text">Breve descrizione della notizia.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
