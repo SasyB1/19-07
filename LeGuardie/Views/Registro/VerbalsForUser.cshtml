@@ -4,41 +4,36 @@
     ViewData["Title"] = "VerbalsForUser";
 }
 
-<h1>VerbalsForUser</h1>
+<h1 class="text-center mb-4">Verbali per Utente</h1>
 
-<p>
-    <a asp-action="Create">Create New</a>
-</p>
-<table class="table">
-    <thead>
+<table class="table table-hover table-striped">
+    <thead class="thead-dark">
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.Nome)
+                @Html.DisplayNameFor(model => model.FirstOrDefault().Nome)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Cognome)
-            </th>           
+                @Html.DisplayNameFor(model => model.FirstOrDefault().Cognome)
+            </th>
             <th>
-                @Html.DisplayNameFor(model => model.TotaleVerbali)
+                @Html.DisplayNameFor(model => model.FirstOrDefault().TotaleVerbali)
             </th>
         </tr>
     </thead>
     <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Nome)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Cognome)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Descrizione)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.TotaleVerbali)
-            </td>
-        </tr>
-}
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Nome)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Cognome)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TotaleVerbali)
+                </td>
+            </tr>
+        }
     </tbody>
 </table>

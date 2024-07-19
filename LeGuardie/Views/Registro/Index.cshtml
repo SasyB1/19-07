@@ -1,4 +1,43 @@
-﻿<a class="btn btn-primary" asp-controller="Registro" asp-action="VerbalsForUser">Visualizza Verbali per Utente</a>
-<a class="btn btn-primary" asp-controller="Registro" asp-action="GetTotalPointsLost">Visualizza Punti Decurtati per Utente</a>
-<a class="btn btn-primary" asp-controller="Registro" asp-action="Greater10Points">Violazioni che superano i 10 punti decurtati</a>
-<a class="btn btn-primary" asp-controller="Registro" asp-action="Verbals400">Violazioni con importo maggiore a 400</a>
+﻿<div class="container mt-4">
+    <div class="row">
+        <div class="col-md-6">
+            <div class="card mb-3">
+                <div class="card-body text-center">
+                    <h5 class="card-title">Visualizza Verbali per Utente</h5>
+                    <p class="card-text">Mostra tutti i verbali associati a un utente specifico.</p>
+                    <a class="btn btn-primary" asp-controller="Registro" asp-action="VerbalsForUser">Scopri</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="card mb-3">
+                <div class="card-body text-center">
+                    <h5 class="card-title">Visualizza Punti Decurtati per Utente</h5>
+                    <p class="card-text">Visualizza il totale dei punti decurtati per ogni utente.</p>
+                    <a class="btn btn-primary" asp-controller="Registro" asp-action="GetTotalPointsLost">Scopri</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6">
+            <div class="card mb-3">
+                <div class="card-body text-center">
+                    <h5 class="card-title">Violazioni che superano i 10 punti decurtati</h5>
+                    <p class="card-text">Elenca le violazioni con una decurtazione maggiore di 10 punti.</p>
+                    <a class="btn btn-primary" asp-controller="Registro" asp-action="Greater10Points">Scopri</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="card mb-3">
+                <div class="card-body text-center">
+                    <h5 class="card-title">Violazioni con importo maggiore a 400</h5>
+                    <p class="card-text">Mostra le violazioni che hanno un importo della multa superiore a 400.</p>
+                    <a class="btn btn-primary" asp-controller="Registro" asp-action="Verbals400">Scopri</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

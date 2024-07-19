@@ -31,7 +31,7 @@ body {
 .textShadow {
     text-shadow: 4px 4px 8px rgba(0, 0, 0, 0.7);
 }
-.card{
+.cardH{
     height: 350px
 }
 .custom-image-size {

@@ -1,42 +1,42 @@
 ﻿@model IEnumerable<LeGuardie.Models.Dto.VerbaleDto>
 
 @{
-    ViewData["Title"] = "GetTotalPointsLost";
+    ViewData["Title"] = "Punti Decurtati Totali";
 }
 
-<h1>GetTotalPointsLost</h1>
+<div class="container mt-4">
+    <h1 class="text-center mb-4">@ViewData["Title"]</h1>
 
-<p>
-    <a asp-action="Create">Create New</a>
-</p>
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.Nome)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Cognome)
-            </th>   
-            <th>
-                @Html.DisplayNameFor(model => model.PuntiDecurtati)
-            </th>
-            
-        </tr>
-    </thead>
-    <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Nome)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Cognome)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.PuntiDecurtati)
-            </td>
-        </tr>
-}
-    </tbody>
-</table>
+    <table class="table table-hover table-striped">
+        <thead class="thead-dark">
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.FirstOrDefault().Nome)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.FirstOrDefault().Cognome)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.FirstOrDefault().PuntiDecurtati)
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Nome)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Cognome)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.PuntiDecurtati)
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+
