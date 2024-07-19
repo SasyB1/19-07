@@ -38,3 +38,18 @@ body {
     height: 200px;
     width: 100%
 }
+
+#carouselExampleAutoplaying .carousel-item img {
+    height: 300px;
+    object-fit: cover;
+    object-position: center 20%;
+}
+
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+    background-color: #000; 
+}
+
+.carousel-indicators li {
+    background-color: #000;
+}
