@@ -31,8 +31,7 @@ namespace LeGuardie.Services
         public List<Violazione> GetViolations()
         {
             return _violazioneDao.GetViolations();
-        }
-        
+        }      
         public List<Anagrafica> GetUsers()
             {
             List<Anagrafica> anagrafiche = new List<Anagrafica>();
