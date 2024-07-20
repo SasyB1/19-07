@@ -31,43 +31,11 @@ namespace LeGuardie.Services
         public List<Violazione> GetViolations()
         {
             return _violazioneDao.GetViolations();
-        }      
-        public List<Anagrafica> GetUsers()
-            {
-            List<Anagrafica> anagrafiche = new List<Anagrafica>();
-            try
-            {
-                using (SqlConnection conn = new SqlConnection(_config.GetConnectionString("DefaultConnection")))
-                {
-                    conn.Open();
-                    const string SELECT_CMD = "SELECT * FROM ANAGRAFICA";
-                    using (SqlCommand cmd = new SqlCommand(SELECT_CMD, conn))
-                    {
-                        using (SqlDataReader reader = cmd.ExecuteReader())
-                        {
-                            while (reader.Read())
-                            {
-                                Anagrafica anagrafica = new Anagrafica
-                                {
-                                    IdUtente = reader.GetInt32(0),
-                                    Nome = reader.GetString(1),
-                                    Cognome = reader.GetString(2),
-                                    Indirizzo = reader.GetString(3),
-                                    Citta = reader.GetString(4),
-                                    CAP = reader.GetString(5),
-                                    CodiceFiscale = reader.GetString(6)
-                                };
-                                anagrafiche.Add(anagrafica);
-                            }
-                        }
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                throw new Exception("Errore nel recupero delle anagrafiche", ex);
-            }
-            return anagrafiche;
         }
+        public List<Anagrafica> GetUsers()
+        {
+            return _verbaleDao.GetUsers();
+        }
+        
     }
 }
