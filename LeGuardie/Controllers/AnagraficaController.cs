@@ -27,8 +27,16 @@ namespace LeGuardie.Controllers
         [HttpPost]
         public IActionResult RegisterUser(AnagraficaDto user)
         {
-            _userService.RegisterUser(user);
-            return RedirectToAction("Index");
+            try
+            {
+                _userService.RegisterUser(user);
+                return RedirectToAction("Index");
+            }
+            catch (InvalidOperationException ex)
+            {
+                ModelState.AddModelError(string.Empty, ex.Message);
+                return View(user);
+            }
         }
     }
 }

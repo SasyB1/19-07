@@ -5,6 +5,8 @@ namespace LeGuardie.Interfaces
     public interface IUserDao
     {
         List<AnagraficaDto> GetUsers();
+
+        public bool IsUserExists(string cognome, string nome);
         void RegisterUser(AnagraficaDto user);
     }
 }

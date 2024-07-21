@@ -20,6 +20,11 @@ namespace LeGuardie.Services
             return _userDao.GetUsers();
         }
 
+        public bool IsUserExists(string cognome, string nome)
+        {
+            return _userDao.IsUserExists(cognome, nome);
+        }
+
         public void RegisterUser(AnagraficaDto user)
         {
             _userDao.RegisterUser(user);

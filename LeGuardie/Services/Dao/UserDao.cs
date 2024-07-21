@@ -50,29 +50,42 @@ namespace LeGuardie.Services.Dao
             return users;
         }
 
-        public void RegisterUser(AnagraficaDto user)
+        public bool IsUserExists(string cognome, string nome)
         {
-            try
+            using (SqlConnection conn = new SqlConnection(_config.GetConnectionString("DefaultConnection")))
             {
-                using (SqlConnection conn = new SqlConnection(_config.GetConnectionString("DefaultConnection")))
+                conn.Open();
+                const string CHECK_CMD = "SELECT COUNT(1) FROM anagrafica WHERE Cognome = @cognome AND Nome = @nome";
+                using (SqlCommand cmd = new SqlCommand(CHECK_CMD, conn))
                 {
-                    conn.Open();
-                    const string INSERT_CMD = "insert into anagrafica (Cognome, Nome, Indirizzo, Città, CAP, Cod_Fisc) values (@cognome, @nome, @indirizzo, @citta, @cap, @codice_fiscale)";
-                    using (SqlCommand cmd = new SqlCommand(INSERT_CMD, conn))
-                    {
-                        cmd.Parameters.AddWithValue("@cognome", user.Cognome);
-                        cmd.Parameters.AddWithValue("@nome", user.Nome);
-                        cmd.Parameters.AddWithValue("@indirizzo", user.Indirizzo);
-                        cmd.Parameters.AddWithValue("@citta", user.Citta);
-                        cmd.Parameters.AddWithValue("@cap", user.CAP);
-                        cmd.Parameters.AddWithValue("@codice_fiscale", user.CodiceFiscale);
-                        cmd.ExecuteNonQuery();
-                    }
+                    cmd.Parameters.AddWithValue("@cognome", cognome);
+                    cmd.Parameters.AddWithValue("@nome", nome);
+                    return (int)cmd.ExecuteScalar() > 0;
                 }
             }
-            catch (Exception ex)
+        }
+
+        public void RegisterUser(AnagraficaDto user)
+        {
+            if (IsUserExists(user.Cognome, user.Nome))
             {
-                throw new Exception("Errore nell'inserimento dell'anagrafica", ex);
+                throw new InvalidOperationException("Utente gia' presente in elenco.");
+            }
+
+            using (SqlConnection conn = new SqlConnection(_config.GetConnectionString("DefaultConnection")))
+            {
+                conn.Open();
+                const string INSERT_CMD = "INSERT INTO anagrafica (Cognome, Nome, Indirizzo, Città, CAP, Cod_Fisc) VALUES (@cognome, @nome, @indirizzo, @citta, @cap, @codice_fiscale)";
+                using (SqlCommand cmd = new SqlCommand(INSERT_CMD, conn))
+                {
+                    cmd.Parameters.AddWithValue("@cognome", user.Cognome);
+                    cmd.Parameters.AddWithValue("@nome", user.Nome);
+                    cmd.Parameters.AddWithValue("@indirizzo", user.Indirizzo);
+                    cmd.Parameters.AddWithValue("@citta", user.Citta);
+                    cmd.Parameters.AddWithValue("@cap", user.CAP);
+                    cmd.Parameters.AddWithValue("@codice_fiscale", user.CodiceFiscale);
+                    cmd.ExecuteNonQuery();
+                }
             }
         }
     }
