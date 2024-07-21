@@ -1,4 +1,6 @@
-﻿namespace LeGuardie.Models
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace LeGuardie.Models
 {
     public class Anagrafica
     {
@@ -8,7 +10,7 @@
         public string Nome { get; set; }      
         public string Indirizzo { get; set; }
         public string Citta { get; set; }
-        public string CAP { get; set; }
+        public string CAP { get; set; }     
         public string CodiceFiscale { get; set; }
     }
 }
