@@ -1,10 +1,11 @@
 ﻿using LeGuardie.Models;
 using LeGuardie.Models.Dto;
 using Microsoft.Data.SqlClient;
+using LeGuardie.Interfaces;
 
 namespace LeGuardie.Services.Dao
 {
-    public class VerbaleDao
+    public class VerbaleDao : IVerbaleDao
     {
         private readonly IConfiguration _config;
 

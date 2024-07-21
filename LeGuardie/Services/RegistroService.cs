@@ -1,10 +1,11 @@
 ﻿using LeGuardie.Models.Dto;
 using Microsoft.Data.SqlClient;
+using LeGuardie.Interfaces;
 
 
 namespace LeGuardie.Services
 {
-    public class RegistroService
+    public class RegistroService : IRegistroService
     {
         private readonly IConfiguration _config;
 

@@ -1,9 +1,10 @@
 ﻿using LeGuardie.Models;
 using Microsoft.Data.SqlClient;
+using LeGuardie.Interfaces;
 
 namespace LeGuardie.Services.Dao
 {
-    public class ViolazioneDao
+    public class ViolazioneDao : IVIolazioneDao
     {
         private readonly IConfiguration _config;
 

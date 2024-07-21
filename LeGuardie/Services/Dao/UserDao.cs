@@ -1,9 +1,10 @@
 ﻿using LeGuardie.Models.Dto;
 using Microsoft.Data.SqlClient;
+using LeGuardie.Interfaces;
 
 namespace LeGuardie.Services.Dao
 {
-    public class UserDao
+    public class UserDao : IUserDao
     {
         private readonly IConfiguration _config;
 
