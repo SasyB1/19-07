@@ -4,7 +4,7 @@ using LeGuardie.Interfaces;
 
 namespace LeGuardie.Services.Dao
 {
-    public class ViolazioneDao : IVIolazioneDao
+    public class ViolazioneDao : IViolazioneDao
     {
         private readonly IConfiguration _config;
 

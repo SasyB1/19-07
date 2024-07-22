@@ -2,7 +2,7 @@
 
 namespace LeGuardie.Interfaces
 {
-    public interface IVIolazioneDao
+    public interface IViolazioneDao
     {
         List<Violazione> GetViolations();
     }
