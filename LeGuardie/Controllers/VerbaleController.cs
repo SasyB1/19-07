@@ -1,4 +1,4 @@
-﻿using LeGuardie.Services;
+﻿using LeGuardie.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 using LeGuardie.Models.Dto;
 using LeGuardie.Models;
@@ -7,9 +7,9 @@ namespace LeGuardie.Controllers
 {
     public class VerbaleController : Controller
     {
-        private readonly VerbaleService _verbaleService;
+        private readonly IVerbaleService _verbaleService;
 
-        public VerbaleController(VerbaleService verbaleService)
+        public VerbaleController(IVerbaleService verbaleService)
         {
             _verbaleService = verbaleService;
         }

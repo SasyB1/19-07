@@ -1,14 +1,14 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using LeGuardie.Services;  
+using LeGuardie.Interfaces;
 using LeGuardie.Models.Dto;
 
 namespace LeGuardie.Controllers
 {
     public class RegistroController : Controller
     {
-        private readonly RegistroService _registroService;
+        private readonly IRegistroService _registroService;
 
-        public RegistroController(RegistroService registroService)
+        public RegistroController(IRegistroService registroService)
             {
             _registroService = registroService;
         }

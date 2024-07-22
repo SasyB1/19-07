@@ -1,3 +1,4 @@
+using LeGuardie.Interfaces;
 using LeGuardie.Services;
 using LeGuardie.Services.Dao;
 var builder = WebApplication.CreateBuilder(args);
@@ -5,14 +6,14 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 
-builder
-    .Services
-    .AddScoped<UserDao>()
-    .AddScoped<VerbaleDao>()
-    .AddScoped<ViolazioneDao>()
-    .AddScoped<VerbaleService>()
-    .AddScoped<RegistroService>()
-    .AddScoped<UserService>();
+builder.Services
+    .AddScoped<IUserDao, UserDao>()
+    .AddScoped<IVerbaleDao, VerbaleDao>()
+    .AddScoped<IViolazioneDao, ViolazioneDao>()
+    .AddScoped<IRegistroService, RegistroService>()
+    .AddScoped<IUserService, UserService>()
+    .AddScoped<IVerbaleService, VerbaleService>();
+
 
 var app = builder.Build();
 

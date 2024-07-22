@@ -8,9 +8,9 @@ namespace LeGuardie.Services
     public class UserService : IUserService
     {
         private readonly IConfiguration _config;
-        private readonly UserDao _userDao;
+        private readonly IUserDao _userDao;
 
-        public UserService(IConfiguration config,UserDao userDao )
+        public UserService(IConfiguration config,IUserDao userDao )
         {
             _config = config;
             _userDao = userDao;

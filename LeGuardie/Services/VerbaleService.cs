@@ -8,10 +8,10 @@ namespace LeGuardie.Services
     public class VerbaleService : IVerbaleService
     {
         private readonly IConfiguration _config;
-        private readonly VerbaleDao _verbaleDao;
-        private readonly ViolazioneDao _violazioneDao;
+        private readonly IVerbaleDao _verbaleDao;
+        private readonly IViolazioneDao _violazioneDao;
 
-        public VerbaleService(IConfiguration config, VerbaleDao verbaleDao, ViolazioneDao violazioneDao)
+        public VerbaleService(IConfiguration config, IVerbaleDao verbaleDao, IViolazioneDao violazioneDao)
         {
             _config = config;
             _verbaleDao = verbaleDao;

@@ -1,14 +1,14 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using LeGuardie.Services;
+using LeGuardie.Interfaces;
 using LeGuardie.Models.Dto;
 
 namespace LeGuardie.Controllers
 {
     public class AnagraficaController : Controller
     {
-        private readonly UserService _userService;
+        private readonly IUserService _userService;
 
-        public AnagraficaController(UserService userService)
+        public AnagraficaController(IUserService userService)
         {
             _userService = userService;
         }
